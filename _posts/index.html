@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>五子棋--by水(⊙o⊙)啊</title>
+ 
+    <style>
+        #canvas{
+            display: block;
+            margin:50px auto;
+            box-shadow: -2px -2px 2px #EFEFEF, 5px 5px 5px #b9b9b9;
+        }
+    </style>
+</head>
+<body>
+ 
+    <canvas id="canvas"></canvas>
+    <script>
+    c=document.getElementById("canvas")
+    p=c.getContext("2d")
+    //基本设置
+    me=true//true=black false=white
+    fs=[]//分数
+    bs=0//步数
+    boxs=[]//落子点
+    wins=[]//赢法
+    ms=[]//我的分数
+    cs=[]//电脑的分数
+    wh=450//画布长宽
+    fs=[]//随机分数
+    long=15//宽度
+    long1=long*2//宽度1
+    qz=13//棋子大小
+    over=false//是否结束游戏
+    count=0//赢法数量
+    //所有落子点(二维数组) 1=black 2=white
+    for (var i=0;i<long;i++){
+        boxs[i]=[]
+    for (var j=0;j<long;j++){
+    boxs[i][j]=0
+}
+}
+//随机分数，自己改吧
+function randfs(){
+for (var i=1;i<5;i++){
+    switch (i){
+    case 1:
+   fs1=random(50,50)
+    fs[i]=fs1
+    break;
+    case 2:
+    fs1=random(100,100)
+    fs[i]=fs1
+    break;
+    case 3:
+    fs1=random(450,450)
+    fs[i]=fs1
+    break;
+    case 4:
+    fs1=random(10000,10000)
+    fs[i]=fs1
+    break;
+}
+}
+}
+randfs()
+    //赢法统计数组
+    myWin = [];
+    computerWin = [];
+    //make wins's 3维数组
+    for (var i=0;i<long;i++){
+        wins[i]=[]
+    for (var j=0;j<long;j++){
+    wins[i][j]=[]
+}
+}
+    //获取572种赢法
+    for(var i=0;i<long;i++){
+	for(var j=0;j<long-4;j++){
+		//执行1次
+		// wins[0][0][0]=true;
+		// wins[0][1][0]=true;
+		// wins[0][2][0]=true;
+		// wins[0][3][0]=true;
+		// wins[0][4][0]=true;
+		//执行2次
+		// wins[0][1][1]=true;
+		// wins[0][2][1]=true;
+		// wins[0][3][1]=true;
+		// wins[0][4][1]=true;
+		// wins[0][5][1]=true;
+		for(var k=0;k<5;k++){
+			wins[i][j+k][count] = true;
+		}
+		count++;
+	}
+}
+//所有竖线
+for(var i=0;i<long;i++){
+	for(var j=0;j<long-4;j++){
+		for(var k=0; k<5;k++){
+			wins[j+k][i][count] = true;
+		}
+		count++;
+	}
+}
+//所有斜线'/'
+for(var i=0;i<long-4;i++){
+	for(var j=0;j<long-4;j++){
+		for(var k=0; k<5;k++){
+			wins[i+k][j+k][count] = true;
+		}
+		count++;
+	}
+}
+//所有反斜线'\'
+for(var i=0;i<long-4;i++){
+	for(var j=long-1;j>3;j--){
+		for(var k=0; k<5;k++){
+			wins[i+k][j-k][count] = true;
+		}
+		count++;
+	}
+}
+//敌我双方的在赢法中的棋子数量
+for (var i=0;i<count;i++) {
+	myWin[i] = 0;
+	computerWin[i] = 0;
+}
+//画布长宽设置
+c.width=wh
+c.height=wh
+//画布绘画
+ var img=new Image()
+ img.src="ims.jpg"
+ img.onload=function (){
+ p.drawImage(img,0,0,450,450)
+ }
+ //走一步
+ function gostep(x,y,me){
+     //还是使棋子落在坐标系上
+     var x=x*long1+long
+     var y=y*long1+long
+     //画子
+     var gradient = p.createRadialGradient(x,y,qz,x,y,0);
+     p.beginPath()
+     p.arc(x,y,qz,0,360)
+     p.closePath()
+    if (me){
+        //黑方
+        gradient.addColorStop(0,"#0A0A0A");
+		gradient.addColorStop(1,"#636766");
+           }
+else{
+    //白方
+    gradient.addColorStop(0,"#D1D1D1");	
+    	gradient.addColorStop(1,"#F9F9F9");
+}
+    p.fillStyle = gradient;
+	p.fill();
+}
+//画布单击事件
+c.onclick=function (e){
+    //检测游戏是否结束
+    if (over){
+    return
+}
+    //使棋子落在坐标系上
+    var x=Math.floor(e.offsetX/long1)
+    var y=Math.floor(e.offsetY/long1)
+    //检测是否落子
+    if (boxs[x][y]==0){
+    gostep(x,y,me)
+    boxs[x][y]=1
+    //步数加一
+    bs++
+    //检测你是否赢
+    for (var i=0;i<count;i++){
+    if (wins[x][y][i]){
+    myWin[i]++
+    computerWin[i]=6
+    if (myWin[i]==5){
+        over=true
+    setTimeout(function (){
+    alert("你终于赢了，呵呵")
+},300);
+}
+}
+}
+}
+else{
+    return
+}
+if (bs==long*long){
+    alert("和棋!nb啊")
+    over=true
+}
+if (!over){
+   //随机分数
+    randfs()
+   //最强人机
+    ai(x,y)
+}
+    me=!me
+}
+function ai(x1,y1){
+    var max = 0; //保存最高分数；
+	var x = 0, y =0; //保存坐标
+   //分数配置
+   for(var i=0;i<15;i++){
+	 	ms[i] = [];
+	 	cs[i] = [];
+	 	for(var j=0;j<15;j++){
+	 		ms[i][j] = 0;
+	 		cs[i][j] = 0;
+	 	}
+	 }
+for (var i=0;i<long;i++){
+    for (var j=0;j<long;j++){
+        //检测棋盘各个位置是否有子
+        if (boxs[i][j]==0){
+            //遍历赢法,某个位置是否符合赢法的一种，符合
+            //的话，就加分于此位置，符合数量越多，加分越多
+    for (var k=0;k<count;k++){
+    if (wins[i][j][k]){
+    if(myWin[k]==1){
+	 						ms[i][j]+= fs[1];
+	 					}else if(myWin[k]==2){
+	 						ms[i][j]+= fs[2];
+	 					}else if(myWin[k]==3){
+	 						ms[i][j]+= fs[3];
+	 					}else if(myWin[k]==4){
+	 						ms[i][j]+= fs[4];
+	 					}
+          if(computerWin[k]==1){
+	 						cs[i][j]+= fs[1]+25;
+	 					}else if(computerWin[k]==2){
+	 						cs[i][j]+= fs[2]+25;
+	 					}else if(computerWin[k]==3){
+	 						cs[i][j]+= fs[3]+25;
+	 					}else if(computerWin[k]==4){
+	 						cs[i][j]+=fs[4]*2 ;
+	 					}
+	 		}
+//取最大分数的点
+       if(cs[i][j]>=max){
+	 				max = cs[i][j];
+	 				x = i;
+	 				y= j;
+	 			} 		
+          if(ms[i][j]>=max){
+	 				max = ms[i][j];
+	 				x = i;
+	 				y= j;
+	 			}
+}
+}
+}
+}
+//敌方下棋
+    me=!me
+    if (boxs[x][y]==0){
+        if (bs==1){
+            rand()
+            function rand(){
+    jx=random(-1,1)
+    jy=random(-1,1)
+    x=x1+jx
+    y=y1+jy
+    if (jx==0 && jy==0 || x<0||y<0||y==15||x==15){
+    rand()
+}
+    }
+}
+    gostep(x,y,me)
+    boxs[x][y]=2
+for (var i=0;i<count;i++){
+    if (wins[x][y][i]){
+    computerWin[i]++
+    myWin[i]=6
+    if (computerWin[i]==5){
+        over=true
+    setTimeout(function (){
+    alert("你输了，垃圾，呵呵😊")
+},300);
+}
+}
+}
+}
+}
+//随机数
+function random(a,b){
+   var c=Math.floor(Math.random()*(b-a+1)+a);
+    return c
+}
+    </script>
+</body>
+</html>
