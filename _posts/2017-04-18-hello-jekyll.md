@@ -11,5 +11,4 @@ tags: 水(⊙o⊙)啊
 ### 测试一下
 
 你好，世界
-
-<iframe type="text/html" width="100%" height="385" src="http://edge.ivideo.sina.com.cn/90898434.mp4?KID=sina,viask&Expires=1627660800&ssig=gTgTgrb8eE" frameborder="0"></iframe>
+ <object data="https://1251316161.vod2.myqcloud.com/007a649dvodcq1251316161/f74508955285890808196262557/aOOFHfakaQUA.mp4" width="100%" height="500px">
