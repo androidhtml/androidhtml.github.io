@@ -3,7 +3,7 @@ layout: post
 title: 'Hello world'
 date: 1202-7-29
 author: 水(⊙o⊙)啊
-cover: 'http://2z.xn--fiqz28p.top/upload/300.jpg'
+cover: 'https://tuapi.eees.cc/dongman/img8182881.jpg'
 tags: 水(⊙o⊙)啊
 ---
 
