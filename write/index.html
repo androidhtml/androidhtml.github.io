@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>[水啊]帖子编辑器</title>
+        <link rel="stylesheet" href="themes/qq/qq.css" />
+        <link rel="stylesheet" href="plugins/code/prettify.css"  />
+        <script charset="UTF-8" src="kindeditor-all-min.js"></script>
+        <script charset="UTF-8" src="lang/zh-CN.js"></script>
+        <script charset="UTF-8" src="plugins/code/prettify.js"></script>
+        <script type="text/javascript">
+            var editor1;
+            KindEditor.ready(function(K){
+                  editor1=K.create('#t1',{
+                    cssPath:'plugins/code/prettify.css',
+                    afterCreate:function(){
+                        KindEditor.html("#t1","---\nlayout: post\ntitle: '标题'\ndate: 2021-10-3\nauthor: 水(⊙o⊙)啊\ncover: '图片'\ntags: 水(⊙o⊙)啊\n---\n")
+                        var self=this;
+                    }
+                });
+                prettyPrint();
+            });
+            function preSave(){
+                 var html = editor1.html();
+                 editor1.sync();
+                 var s =document.getElementById("t1").value
+              var s2= document.getElementById("t2")
+                s2.value=s
+                 //KindEditor.copy()
+                 s2.style.display="block"
+                  s2.select();
+        //使用浏览器的 API接口方法 execCommand()
+        document.execCommand("copy")
+s2.style.display="none"
+                 alert("复制成功")
+                 return false;
+            }
+        </script>
+    </head>
+    <body background="https://tuapi.eees.cc/fengjing/img46730979101.jpg">
+         <form id="example" name="example">
+        <textarea id="t1" name="t1" cols="100" rows="8" style="width:100%;height:350px;visibility:hidden;">
+
+        </textarea>
+          <textarea style="display: none;" id="t2" value=""></textarea>
+        <input type="submit" id="submit" value="复制" onclick="return preSave();" />
+  </form>
+    </body>
+</html>
