@@ -3,16 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <title>[水啊]帖子编辑器</title>
-        <link rel="stylesheet" href="themes/qq/qq.css" />
-        <link rel="stylesheet" href="plugins/code/prettify.css"  />
-        <script charset="UTF-8" src="kindeditor-all-min.js"></script>
-        <script charset="UTF-8" src="lang/zh-CN.js"></script>
-        <script charset="UTF-8" src="plugins/code/prettify.js"></script>
+        <link rel="stylesheet" href="../themes/qq/qq.css" />
+        <link rel="stylesheet" href="../plugins/code/prettify.css"  />
+        <script charset="UTF-8" src="../kindeditor-all-min.js"></script>
+        <script charset="UTF-8" src="../lang/zh-CN.js"></script>
+        <script charset="UTF-8" src="../plugins/code/prettify.js"></script>
         <script type="text/javascript">
             var editor1;
             KindEditor.ready(function(K){
                   editor1=K.create('#t1',{
-                    cssPath:'plugins/code/prettify.css',
+                    cssPath:'../plugins/code/prettify.css',
                     afterCreate:function(){
                         KindEditor.html("#t1","---\nlayout: post\ntitle: '标题'\ndate: 2021-10-3\nauthor: 水(⊙o⊙)啊\ncover: '图片'\ntags: 水(⊙o⊙)啊\n---\n")
                         var self=this;
