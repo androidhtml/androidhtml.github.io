@@ -42,7 +42,7 @@ comments:
 
 #disqus配置
 disqus:
-api:'https://disqus.skk.moe/disqus'
+  api: 'https://disqus.skk.moe/disqus'
 
 # MathJax 公式支持 by Ray-Eldath
 mathjax: true
