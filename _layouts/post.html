@@ -133,25 +133,12 @@
     this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     */
-    var dsqjs = new DisqusJS({
-    shortname: 'androidhtml',
-    siteName: 'androidhtml',
-    identifier: 'document.location.origin + document.location.pathname + document.location.search',
-    url: 'document.location.origin + document.location.pathname + document.location.search',
-    title: 'document.title',
-    api: 'https://disqus.skk.moe/disqus/',
-    apikey: '',
-    admin: '',
-    adminLabel: ''
-})
-    /*
     (function() { // DON'T EDIT BELOW THIS LINE
       var d = document, s = d.createElement('script');
       s.src = '{{ site.comments.disqus_url }}';
       s.setAttribute('data-timestamp', +new Date());
       (d.head || d.body).appendChild(s);
     })();
-    */
   </script>
   {% endif %}
 
