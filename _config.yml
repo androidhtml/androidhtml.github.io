@@ -40,6 +40,10 @@ comments:
   disqus: true
   disqus_url: 'https://androidhtml.disqus.com/embed.js'
 
+#disqus配置
+disqus:
+api:'https://disqus.skk.moe/disqus'
+
 # MathJax 公式支持 by Ray-Eldath
 mathjax: true
 
