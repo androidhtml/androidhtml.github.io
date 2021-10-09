@@ -133,12 +133,25 @@
     this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     */
+    var dsqjs = new DisqusJS({
+    shortname: '',
+    siteName: '',
+    identifier: '',
+    url: '',
+    title: '',
+    api: '',
+    apikey: '',
+    admin: '',
+    adminLabel: ''
+})
+    /*
     (function() { // DON'T EDIT BELOW THIS LINE
       var d = document, s = d.createElement('script');
       s.src = '{{ site.comments.disqus_url }}';
       s.setAttribute('data-timestamp', +new Date());
       (d.head || d.body).appendChild(s);
     })();
+    */
   </script>
   {% endif %}
 
