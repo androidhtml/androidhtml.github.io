@@ -35,9 +35,9 @@ search: true
 # Night mode
 nightMode: true
 
-# Comments 评论功能
+# Comments 评论功能不要修改，已自动开启
 comments:
-  disqus: true
+  disqus: false
   disqus_url: 'https://androidhtml.disqus.com/embed.js'
 
 # MathJax 公式支持 by Ray-Eldath
