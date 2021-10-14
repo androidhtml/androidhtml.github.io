@@ -35,15 +35,14 @@
   <div class="post-content visible">
     {% if page.subtitle %}
     <h2 class="post-subtitle">{{ page.subtitle }}</h2>
+    <br>
+    <h2 class="post-subtitle">{{ content | strip_html | strip_newlines | split: "" | size }}</h2>
     {% endif %}
-    
-    字数:{{ content | strip_html | strip_newlines | split: "" | size }}
     
   <!-- 在正文开头添加网易云音乐插件 -->
   {% if page.music-id %}
     {% include cloud-music.html %}
-  {% endif %} 
-  {{ content }}
+  {% endif %}
     
     <article class="markdown-body">
       {{ page.content }}
