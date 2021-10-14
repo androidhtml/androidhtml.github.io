@@ -24,6 +24,10 @@
       <div class="post-meta">
         <span class="post-meta-item"><i class="iconfont icon-author"></i>{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}</span>
         <time class="post-meta-item" datetime="{{ page.date | date:"%y-%m-%d" }}"><i class="iconfont icon-date"></i>{{ page.date | date_to_string }}</time>
+        <!-- pv的方式，单个用户点击1篇文章，本篇文章记录1次阅读量 -->
+<span id="busuanzi_container_page_pv">
+  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
       </div>
     </div>
     {% if page.cover %}
@@ -152,6 +156,8 @@ var idcomments_post_url;
   {% endif %}
 
   <script src="{{ "/assets/js/prism.js" | relative_url }}"></script>
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
   <script src="{{ "/assets/js/index.min.js" | relative_url }}"></script>
 </body>
 
