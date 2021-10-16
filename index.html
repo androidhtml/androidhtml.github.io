@@ -7,25 +7,6 @@ description: 天若有情天亦老 人间正道是沧桑
 {% include header.html %}
 <style>
         @keyframes blink-caret { 50% { background-color: transparent; } }
-
-        span{
-
-            animation:blink-caret 1s step-end infinite;
-
-            width: 1px;
-
-            height: 20px;
-
-            background-color: #000;
-
-            float: left;
-
-            position: absolute;
-
-            right: -10px;
-
-        }
-
 </style>
 <div
     class="g-banner home-banner {{ site.theme-color | prepend: 'banner-theme-' }}"
@@ -33,7 +14,7 @@ description: 天若有情天亦老 人间正道是沧桑
     style="{% if page.header-img %}background: url({{ page.header-img | relative_url }}) no-repeat center center; background-size: cover;{% endif %}"
 >
     <h2>{{ page.home-title }}</h2>
-    <h3 class="container"></h3>
+    <div class="container"></div>
 </div>
 
 <main class="g-container home-content">
