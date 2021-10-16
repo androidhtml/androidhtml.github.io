@@ -51,7 +51,47 @@ $(function(){
   overflow: hidden;
   background-attachment: fixed;
        }
+   </style><!doctype html>
+<html>
+	<head> 
+		<meta charset="UTF-8"> 
+		<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"> 
+	</head> 
+	<body> 
+   <style>
+   body{
+       height: 100%;
+  width: 100%;
+  background: url('../bg.jpg') no-repeat;
+  background-size: cover;
+  position: absolute;
+  overflow: hidden;
+  background-attachment: fixed;
+       }
    </style>
+  <div width="100%" height="100%"> <center><h3 id="jz">加载中，请耐心等待</h3></center></div>
+   <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+$(function(){
+	$.ajax({
+		url: 'music.txt',
+		dataType: 'text',
+		success: function(data) {
+			m=data.split("\n").length;
+         for(var a=0;a<m;a++)
+         {
+         id=data.split("\n")[a]
+         l="http://music.163.com/outchain/player?type=2&id="+id+"&auto=0&height=66"
+         var list=$('<iframe src="'+l+'" frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86></iframe>')
+         $("body").append(list);
+         }
+		}
+	});
+    setTimeout('$("#jz").hide()',670)
+});
+  </script>
+	</body>
+</html>
   <div width="100%" height="100%"> <center><h3 id="jz">加载中，请耐心等待</h3></center></div>
    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
   <script>
