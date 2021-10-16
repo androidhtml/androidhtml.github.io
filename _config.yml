@@ -18,6 +18,7 @@ baseurl: ''
 nav:
   主页: '/'
   标签: '/tags.html'
+  音乐: '/music.html'
 
 # Footer
 footer:
