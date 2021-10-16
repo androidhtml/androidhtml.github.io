@@ -14,7 +14,7 @@ description: 天若有情天亦老 人间正道是沧桑
     style="{% if page.header-img %}background: url({{ page.header-img | relative_url }}) no-repeat center center; background-size: cover;{% endif %}"
 >
     <h2>{{ page.home-title }}</h2>
-    <div class="container"></div>
+    <h3 class="container"></h3>
 </div>
 
 <main class="g-container home-content">
@@ -135,7 +135,7 @@ var con = $('.container');
     var tId = null;
     function start(){
         con.text('');
-        con.append('<h2></h2>');
+        con.append('<h3></h3>');
         tId=setInterval(function(){
             con.append(s.charAt(index));
                   length = s.length;
