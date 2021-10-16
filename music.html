@@ -25,7 +25,7 @@ $(function(){
 		dataType: 'text',
 		success: function(data) {
 			m=data.split("\n").length;
-         for(var a=0;a<m;a++)
+         for(var a=0;a<m-1;a++)
          {
          id=data.split("\n")[a]
          l="http://music.163.com/outchain/player?type=2&id="+id+"&auto=0&height=66"
