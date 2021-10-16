@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+	<head> 
+		<meta charset="UTF-8"> 
+		<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"> 
+	</head> 
+	<body> 
+   <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+$(function(){
+	$.ajax({
+		url: 'music.txt',
+		dataType: 'text',
+		success: function(data) {
+			m=data.split("\n").length;
+         for(var a=0;a<m;a++)
+         {
+         id=data.split("\n")[a]
+         l="http://music.163.com/outchain/player?type=2&id="+id+"&auto=0&height=66"
+         var list=$('<iframe src="'+l+'" frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86></iframe>')
+         
+         $("body").append(list);
+         }
+		}
+	});
+});
+  </script>
+	</body>
+</html>
