@@ -5,14 +5,46 @@ description: 天若有情天亦老 人间正道是沧桑
 ---
 
 {% include header.html %}
+<style>
 
+ .container{
+
+            float: left;
+
+            display: inline-block;
+
+            position: relative;
+
+        }
+
+        @keyframes blink-caret { 50% { background-color: transparent; } }
+
+        span{
+
+            animation:blink-caret 1s step-end infinite;
+
+            width: 1px;
+
+            height: 20px;
+
+            background-color: #000;
+
+            float: left;
+
+            position: absolute;
+
+            right: -10px;
+
+        }
+
+</style>
 <div
     class="g-banner home-banner {{ site.theme-color | prepend: 'banner-theme-' }}"
     data-theme="{{ site.theme-color }}"
     style="{% if page.header-img %}background: url({{ page.header-img | relative_url }}) no-repeat center center; background-size: cover;{% endif %}"
 >
     <h2>{{ page.home-title }}</h2>
-    <h3>{{ page.description }}</h3>
+    <div class="container"></div>
 </div>
 
 <main class="g-container home-content">
@@ -102,3 +134,49 @@ description: 天若有情天亦老 人间正道是沧桑
 </main>
 
 {% include footer.html %}
+ <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    var s = '天若有情天亦老 人间正道是沧桑';
+    function getlast(obj){
+
+var index=obj.lastIndexOf(":");
+obj=obj.substring(index+1,obj.length);
+// console.log(obj);
+return obj;
+}
+function next(){
+    	$(function(){
+	$.ajax({
+		url: 'fun.txt',
+		dataType: 'text',
+		success: function(data) {
+          m=data.split("\n").length;
+          i=Math.floor(Math.random() *m+1);	
+         s=getlast(data.split("\n")[i])     
+		}
+	});
+});
+}
+    </script>
+<script>         
+var length = s.length;
+var con = $('.container');
+    var index = 0;
+    var tId = null;
+    function start(){
+        con.text('');
+        con.append('<h3></h3>');
+        tId=setInterval(function(){
+            con.append(s.charAt(index));
+                  length = s.length;
+            if(index++ === length){
+                clearInterval(tId);
+                index = 0;
+                next()
+                
+                start()        
+            }
+        },150);
+    }
+    start();
+</script>
