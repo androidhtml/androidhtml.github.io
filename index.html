@@ -135,7 +135,7 @@ var con = $('.container');
     var tId = null;
     function start(){
         con.text('');
-        con.append('<h3></h3>');
+        con.append('<span></span>');
         tId=setInterval(function(){
             con.append(s.charAt(index));
                   length = s.length;
@@ -146,7 +146,7 @@ var con = $('.container');
                 
                 start()        
             }
-        },150);
+        },200);
     }
     start();
 </script>
