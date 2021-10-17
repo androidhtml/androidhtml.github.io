@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+<title>随机一言</title>
 	<head> 
 		<meta charset="UTF-8"> 
 		<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"> 
@@ -15,19 +16,26 @@ obj=obj.substring(index+1,obj.length);
 // console.log(obj);
 return obj;
 }
+function random(){
     	$(function(){
 	$.ajax({
 		url: 'fun.txt',
 		dataType: 'text',
 		success: function(data) {
           m=data.split("\n").length;
+          //Github+1
           i=Math.floor(Math.random() *m+1);	
-         s=getlast(data.split("\n")[i])  
-        // alert(s)
+         if (!getlast(data.split("\n")[i])){  
+         //alert(666) 
+random()
+}
+s=getlast(data.split("\n")[i])
          $("#wz").text(s)   
 		}
 	});
    })
+   }
+      random()
     </script>
 	</body>
 </html>
