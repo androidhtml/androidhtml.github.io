@@ -14,7 +14,11 @@
                   editor1=K.create('#t1',{
                     cssPath:'../plugins/code/prettify.css',
                     afterCreate:function(){
-                        KindEditor.html("#t1","---\nlayout: post\ntitle: '标题' \n date: 2021-10-3 \n author: 水(⊙o⊙)啊\n cover: '图片'\n tags: 水(⊙o⊙)啊\n---\n")
+                       var d=new Date()
+      year=d.getFullYear()
+      month=d.getMonth()
+      day=d.getDay()
+                        KindEditor.html("#t1","---\nlayout: post\ntitle: '标题'\ndate:"+year+"-"+month+"-"+day+"\nauthor: 水(⊙o⊙)啊\ncover: '图片'\ntags: 水(⊙o⊙)啊\n---\n")
                         var self=this;
                     }
                 });
