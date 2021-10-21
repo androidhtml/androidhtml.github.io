@@ -16,8 +16,8 @@
                     afterCreate:function(){
                        var d=new Date()
       year=d.getFullYear()
-      month=d.getMonth()
-      day=d.getDay()
+      month=d.getMonth()+1
+      day=d.getDate()
                         KindEditor.html("#t1","---\nlayout: post\ntitle: '标题'\ndate:"+year+"-"+month+"-"+day+"\nauthor: 水(⊙o⊙)啊\ncover: '图片'\ntags: 水(⊙o⊙)啊\n---\n")
                         var self=this;
                     }
