@@ -28,6 +28,9 @@
 <span class="post-meta-item" id="busuanzi_container_page_pv">
   本文总阅读量<span id="busuanzi_value_page_pv"></span>次
 </span>
+{% capture time %}{{ content | reading_time }}{% endcapture %}
+  <span class="post-meta-item">This article will take {{ time }} {% if time == '1' %}minute{% else %}minutes{% endif %} to read.</span>
+
       </div>
     </div>
     {% if page.cover %}
