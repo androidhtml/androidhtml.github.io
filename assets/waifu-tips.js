@@ -103,7 +103,7 @@ function waifuWelcome(){
             referrer.href = document.referrer;
             var domain = referrer.hostname.split('.')[1];
             if (window.location.hostname == referrer.hostname) {
-                  text = '欢迎阅读<span style="color:#0099cc;">『' + document.title.split(' - ')[0] + '』</span>';
+                  text = '欢迎来到<span style="color:#0099cc;">『' + document.title.split(' - ')[0] + '』</span>';
             } else if (domain == 'baidu') {
                 text = 'Hello! 来自 百度搜索 的朋友<br>你是搜索 <span style="color:#0099cc;">' + referrer.search.split('&wd=')[1].split('&')[0] + '</span> 找到的我吗？';
             } else if (domain == 'so') {
