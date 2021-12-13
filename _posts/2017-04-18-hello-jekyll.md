@@ -3,7 +3,7 @@ layout: post
 title: 'Hello world'
 date: 1202-7-29
 author: 水(⊙o⊙)啊
-cover: 'https://late-bread-5ea1.androidhtml.workers.dev/aly/img8182881.jpg'
+cover: 'https://onemanageronvercel-androidhtml.vercel.app/%E5%9B%BE%E7%89%87/img8182881.jpg'
 tags: 水(⊙o⊙)啊
 ---
 
