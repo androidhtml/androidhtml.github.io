@@ -17,6 +17,7 @@ baseurl: ''
 # Navigation links
 nav:
   主页: '/'
+  水啊: 'http://shui.xnut.cn/wordpress/'
   标签: '/tags.html'
   网盘: 'http://pan.shui.tk'
   导航: 'https://dh.shui.tk/'
