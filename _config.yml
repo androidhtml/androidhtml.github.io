@@ -2,7 +2,7 @@
 title: '水啊的博客'
 description: '水啊，前端开发者,葫芦侠，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。'
 keyword: '水啊,水啊的独立博客, 水啊的博客, 前端, 前端开发, 前端博客,php,css,jquery,html,css,mdui,java,javascript, vuejs, nodejs, 设计'
-url: '' # your host
+url: 'www.shui.tk' # your host
 
 # when build blog on server, if you don't need baseurl, you should leave this value blank.
 # 在服务器上建站时，如果你不需要子域名，请将这一格留空
