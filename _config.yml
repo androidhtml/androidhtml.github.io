@@ -1,7 +1,7 @@
 # Site settings 配置站点
-title: '水(⊙o⊙)啊的博客'
-description: '昵称水(⊙o⊙)啊，前端开发者，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。'
-keyword: '水(⊙o⊙)啊,水(⊙o⊙)啊的独立博客, 水(⊙o⊙)啊的博客, 前端, 前端开发, 前端博客, javascript, vuejs, nodejs, 设计'
+title: '水啊的博客'
+description: '水啊，前端开发者,葫芦侠，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。'
+keyword: '水啊,水啊的独立博客, 水啊的博客, 前端, 前端开发, 前端博客,php,css,jquery,html,css,mdui,java,javascript, vuejs, nodejs, 设计'
 url: '' # your host
 
 # when build blog on server, if you don't need baseurl, you should leave this value blank.
@@ -32,9 +32,9 @@ footer:
   since: 2017
 
 # Author 配置博主信息
-author: '水(⊙o⊙)啊'
+author: '水啊'
 nickname: '博主'
-bio: '开发者，沙雕，程序员，热爱技术&动漫&游戏，简单乐观爱创造'
+bio: '开发者，沙雕，程序员，葫芦侠，热爱技术&动漫&游戏，简单乐观爱创造'
 avatar: '/assets/img/profile.jpg'
 
 # Search
