@@ -18,7 +18,7 @@ baseurl: ''
 nav:
   主页: '/'
   标签: '/tags.html'
-  网盘: 'https://pan.shuia.tk/'
+  网盘: 'https://pan1.shuia.tk/'
   API: 'http://api.shui.tk'
   导航: 'https://searc.vercel.app/'
   一图: 'https://api-seven-teal.vercel.app/'
