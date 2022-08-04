@@ -2,12 +2,18 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>[水啊]帖子编辑器</title>
+        <title>[水啊]帖子编辑器1.2</title>
         <link rel="stylesheet" href="../themes/qq/qq.css" />
         <link rel="stylesheet" href="../plugins/code/prettify.css"  />
         <script charset="UTF-8" src="../kindeditor-all-min.js"></script>
         <script charset="UTF-8" src="../lang/zh-CN.js"></script>
         <script charset="UTF-8" src="../plugins/code/prettify.js"></script>
+         <link rel='stylesheet' href='https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+    <script src='https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script src='https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/angular.js/1.4.6/angular.min.js"></script><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><nav class="navbar navbar-default">
         <script type="text/javascript">
             var editor1;
             KindEditor.ready(function(K){
@@ -25,29 +31,45 @@
                 prettyPrint();
             });
             function preSave(){
-                 var html = editor1.html();
+                $(function(){
+                      var html = editor1.html();
                  editor1.sync();
                  var s =document.getElementById("t1").value
               var s2= document.getElementById("t2")
                 s2.value=s
-                 //KindEditor.copy()
-                 s2.style.display="block"
-                  s2.select();
-        //使用浏览器的 API接口方法 execCommand()
-        document.execCommand("copy")
-s2.style.display="none"
-                 alert("复制成功")
+                reke=s.split("\n")
+                str=reke[2]
+              str=str.split("'")
+                title=str[1]
+       // alert(title)
+       url="http://localhost:8001/index.php"
+ $.post(url,
+    {
+        dataType:"jsonp",
+        async:false,
+        t:title,
+        text:document.getElementById("t1").value,
+        mm:document.getElementById("mm").value
+    },
+    function(data,status){
+        debugger;
+        alert("数据: \n" + data + "\n状态: " + status);
+    });
+})
                  return false;
             }
         </script>
     </head>
     <body background="https://tuapi.eees.cc/fengjing/img46730979101.jpg">
-         <form id="example" name="example">
+
         <textarea id="t1" name="t1" cols="100" rows="8" style="width:100%;height:350px;visibility:hidden;">
 
         </textarea>
-          <textarea style="display: none;" id="t2" value=""></textarea>
-        <input type="submit" id="submit" value="复制" onclick="return preSave();" />
+        <input class="form-control" id="mm" placeholder="请输入密码"><a target="_blank" style="margin: 0 auto;" href="https://upload.shuia.tk/">upload</a>
+          <textarea class="form-control" style="display: none;" id="t2"></textarea>
+          <br>
+          <br>
+        <center><input style="width: 250px;" class="btn btn-default" type="submit" onclick="preSave();" id="submit" value="提交"/>
   </form>
     </body>
-</html>
+  </html>
