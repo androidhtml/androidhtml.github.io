@@ -115,24 +115,25 @@
   </section>
   
   <!-- 自定义评论 -->
-  <!-- 来必力City版安装代码 -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC81NjcyMC8zMzE4NA==">
-<script type="text/javascript">
-   (function(d, s) {
-       var j, e = d.getElementsByTagName(s)[0];
+  <!-- 安装代码 -->
+<!-- CSS -->
+<link href="https://unpkg.com/artalk@2.3.4/dist/Artalk.css" rel="stylesheet">
 
-       if (typeof LivereTower === 'function') { return; }
+<!-- JS -->
+<script src="https://unpkg.com/artalk@2.3.4/dist/Artalk.js"></script>
 
-       j = d.createElement(s);
-       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-       j.async = true;
-
-       e.parentNode.insertBefore(j, e);
-   })(document, 'script');
+<!-- Artalk -->
+<div id="Comments"></div>
+<script>
+  new Artalk({
+    el:        '#Comments',              // 绑定元素的 Selector
+    pageKey:   '',                // 固定链接 (留空自动获取)
+    pageTitle: '', // 页面标题 (留空自动获取)
+    server:    '',  // 后端地址
+    site:      '水啊的博客',           // 你的站点名
+  })
 </script>
-<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-</div>
-<!-- City版安装代码已完成 -->
+<!-- 安装代码已完成 -->
   {% include footer.html %}
 
   <script src="{{ "/assets/js/social-share.min.js" | relative_url }}"></script>
