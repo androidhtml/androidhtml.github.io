@@ -18,6 +18,7 @@ baseurl: ''
 nav:
   主页: '/'
   标签: '/tags.html'
+  个人: 'https://cdn.shuia.tk/'
   网盘: 'https://pan1.shuia.tk/'
   状态: 'https://uptimekumaonreplit.androidhtml.repl.co/status/status'
   一图: 'https://api-seven-teal.vercel.app/'
